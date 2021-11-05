@@ -21,10 +21,17 @@ on :
     - "synchronize"
 
 jobs :
+
+  input :
+    uses : "kuwas/.github/.github/workflows/input.yml@main"
+    with :
+      machine : "ubuntu-latest"
+      default : "default"
+
   default :
 
     if : true
-    # needs : [ "default" ]
+    needs : [ "input" ]
     continue-on-error : false
     timeout-minutes : 60
 
