@@ -1,0 +1,14 @@
+---
+# {{ metas -}}
+name : input
+on :
+  workflow_call :
+    inputs :
+      machine : { type : string }
+      default : { type : string }
+jobs :
+  default :
+    runs-on : "${{ inputs.machine }}"
+    steps :
+    - name : machine echo
+      run : "echo ${{ inputs.default }}"
